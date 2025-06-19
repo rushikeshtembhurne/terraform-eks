@@ -1,3 +1,8 @@
+variable "aws_region" {
+  default     = "us-west-1"
+  description = "aws region"
+}
+
 variable "vpc_name" {
   description = "The name of the VPC"
   type        = string
@@ -77,3 +82,19 @@ variable "max_size" {
 variable "desired_size" {
   type = number
 }
+variable "worker_mgmt_cidr_blocks" {
+  description = "CIDR blocks allowed to access worker management"
+  type        = list(string)
+  default = [
+    "10.0.0.0/8",
+    "172.16.0.0/12",
+    "192.168.0.0/16"
+  ]
+}
+
+variable "egress_cidr_blocks" {
+  description = "CIDR blocks allowed for egress traffic"
+  type        = list(string)
+  default     = ["0.0.0.0/0"]
+}
+

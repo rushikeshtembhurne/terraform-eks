@@ -1,3 +1,4 @@
+aws_region           = "us-east-1"
 vpc_name             = "eks-vpc"
 vpc_cidr             = "10.0.0.0/16"
 azs                  = ["us-east-1a", "us-east-1b", "us-east-1c"]
@@ -13,3 +14,9 @@ instance_types       = ["t3.medium"]
 min_size             = 2
 max_size             = 6
 desired_size         = 2
+worker_mgmt_cidr_blocks = [
+  "10.0.0.0/8",
+  "172.16.0.0/12",
+  "192.168.0.0/16"
+]
+egress_cidr_blocks = ["0.0.0.0/0"]
